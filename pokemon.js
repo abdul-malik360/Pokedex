@@ -1,14 +1,21 @@
-fetch("https://pokeapi.co/api/v2/pokemon")
-.then(response => response.json())
-.then(data => {
-    let pokemon =data.results;
-    console.log(pokemon)
-    pokemon.forEach(btn =>{
-        document.querySelector(".pokemon-list-container").innerHTML += `<button onclick="getPokemonInfo('${btn.url}')">${btn.name}</button>`
-    })
-})
+let base_URL = "https://pokeapi.co/api/v2/pokemon";
+
+function getPokemonList(url){
+    fetch(url)
+        .then(response => response.json())
+        .then(data =>{
+            console.log(data);
+            let pokemon =data.results;
+            let container = document.querySelector(".pokemon-list-container");
+            container.innerHTML = "";
+            pokemon.forEach((btn) => {
+                container.innerHTML += `<button onclick="getPokemonInfo('${btn.url}')">${btn.name}</button>`;
+            });
+            container.innerHTML += `<br><br><button onclick="getPokemonList('${data.next}')">Next</button>`;});
+}
+getPokemonList(base_URL);
+
 function getPokemonInfo(url){
-    // console.log(url)
     fetch(url)
     .then(response => response.json())
     .then(data => {
