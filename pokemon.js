@@ -23,7 +23,19 @@ function getPokemonInfo(url) {
     .then((data) => {
       console.log(data);
       document.querySelector(
-        ".pokemon-info"
-      ).innerHTML = `<img src= "${data.sprites.front_default}">`;
+        ".pokepic"
+      ).innerHTML = `<img src= "${data.sprites.other["official-artwork"].front_default}"> <img src= "${data.sprites.back_default}">`;
+      document.querySelector(".pokemon-info").innerHTML = `
+
+      
+      <div> 
+      <h2>Pokemon: ${data.name}</h2>
+      <p>Abilities: ${data.abilities[0].ability.name}, ${data.abilities[1].ability.name}</p>
+      <p>Moves: ${data.moves[0].move.name}, ${data.moves[1].move.name}</p>
+      <p>Type: ${data.types[0].type.name}, ${data.types[1].type.name}</p>
+      <p>Weight: ${data.weight}</p>
+      </div>`;
     });
 }
+
+//
