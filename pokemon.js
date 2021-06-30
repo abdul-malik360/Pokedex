@@ -34,6 +34,7 @@ function getPokemonInfo(url) {
       <p>Moves: ${data.moves[0].move.name}, ${data.moves[1].move.name}</p>
       <p>Type: ${data.types[0].type.name}, ${data.types[1].type.name}</p>
       <p>Weight: ${data.weight}</p>
+      <p>height: ${data.height}</p>
       </div>`;
     });
 }

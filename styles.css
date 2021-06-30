@@ -14,18 +14,20 @@
 }
 
 body {
-  background-image: url(/images/301512.png);
+  background-color: black;
   object-fit: contain;
 }
 
 .container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
+  padding: 50px;
 }
 
 h1 {
+  text-align: center;
   font-family: pokemon1;
   color: #2a75bb;
 
@@ -33,21 +35,26 @@ h1 {
   -webkit-text-stroke-width: 5px;
   font-size: 80px;
 }
-
-.pokepic {
+.pokecard{
   background: rgba(29, 216, 207, 0.25);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(0px);
   -webkit-backdrop-filter: blur(0px);
   border-radius: 10px;
-
+}
+.pokepic {
   margin: 30px;
   height: 100%;
+  
 }
 
 .pokebtn {
   margin: 5px;
   background: transparent;
+  background-image: url(/images/pokeball_142x142.png);
+  object-fit: cover;
+  height: 15vh;
+  width: 10%;
   border: none;
   cursor: pointer;
 
