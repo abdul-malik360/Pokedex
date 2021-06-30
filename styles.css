@@ -44,11 +44,12 @@ h1 {
 }
 .pokepic {
   margin: 30px;
-  height: 100%;
+  height: 100vh;
   
 }
 
 .pokebtn {
+  text-align: center;
   margin: 5px;
   background: transparent;
   background-image: url(/images/pokeball_142x142.png);
@@ -63,5 +64,5 @@ h1 {
 
   -webkit-text-fill-color: #ffcb05;
   -webkit-text-stroke-width: 1px;
-  font-size: 16px;
+  font-size: 25px;
 }
