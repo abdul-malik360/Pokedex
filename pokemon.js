@@ -11,8 +11,8 @@ function getPokemonList(url) {
       pokemon.forEach((btn) => {
         container.innerHTML += `<button class="pokebtn" onclick="getPokemonInfo('${btn.url}')">${btn.name}</button>`;
       });
-      container.innerHTML += `<br><br><button onclick="getPokemonList('${data.previous}')">Previous</button>`;
-      container.innerHTML += `<button onclick="getPokemonList('${data.next}')">Next</button>`;
+      container.innerHTML += `<br><br><button class="npbtn" onclick="getPokemonList('${data.previous}')"><i class="far fa-arrow-alt-circle-left"></i></button>`;
+      container.innerHTML += `<button class="npbtn" onclick="getPokemonList('${data.next}')"><i class="far fa-arrow-alt-circle-right"></i></button>`;
     });
 }
 getPokemonList(base_URL);
