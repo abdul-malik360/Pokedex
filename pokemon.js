@@ -9,7 +9,12 @@ function getPokemonList(url) {
       let container = document.querySelector(".pokemon-list-container");
       container.innerHTML = "";
       pokemon.forEach((btn) => {
-        container.innerHTML += `<button class="pokebtn" onclick="getPokemonInfo('${btn.url}')">${btn.name}</button>`;
+        fetch(btn.url)
+          .then((res) => res.json())
+          .then((pokemon) => {
+            console.log(pokemon.sprites.front_default);
+            container.innerHTML += `<button class="pokebtn" onclick="getPokemonInfo('${btn.url}')"> <img src="${pokemon.sprites.back_default}"></button>`;
+          });
       });
       container.innerHTML += `<button class="npbtn" onclick="getPokemonList('${data.previous}')"><i class="far fa-arrow-alt-circle-left"></i></button>`;
       container.innerHTML += `<button class="npbtn" onclick="getPokemonList('${data.next}')"><i class="far fa-arrow-alt-circle-right"></i></button>`;
@@ -30,17 +35,17 @@ function getPokemonInfo(url) {
 
       document.querySelector(
         ".pokepic"
-      ).innerHTML = `<img src= "${data.sprites.other["official-artwork"].front_default}"> <img src= "${data.sprites.back_default}">`;
+      ).innerHTML = `<img src= "${data.sprites.other["official-artwork"].front_default}">`;
       document.querySelector(".pokemon-info").innerHTML = `
 
       
       <div> 
       <h2>Pokemon: <span class="nameh2">${data.name}</span></h2>
-      <p class='aspan'>Abilities: </p>
-      <p class="mspan">Moves: ${data.moves[0].move.name} </p>
       <p class="tspan">Type: </p>
-      <p>Weight: ${data.weight} kg</p>
-      <p>height: ${data.height} m</p>
+      <p class='aspan'>Abilities: </p>
+      <p class="mspan">Moves:  <span class="movespan">${data.moves[0].move.name}</span></p>
+      <p class="hspan">height: <span class="heightspan">${data.height}m</span> </p> 
+      <p class="wspan">Weight: <span class="weightspan">${data.weight}kg</span></p> 
       </div>`;
 
       abilities.forEach((a) => {

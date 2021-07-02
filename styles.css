@@ -14,8 +14,9 @@
 }
 
 body {
-  background-image: url(/images/try3.jpg);
-  object-fit: contain;
+  background-image: url(/images/try5.jpeg);
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 .container {
@@ -37,18 +38,70 @@ h1 {
 h2 {
   font-family: pokemon1;
   color: #2a75bb;
-  -webkit-text-fill-color: #ffcb05;
-  -webkit-text-stroke-width: 3px;
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 1px;
 }
 .nameh2 {
-  font-family: pokemon2;
+  font-family: sans-serif;
+}
+.aspan {
+  font-family: pokemon1;
+  color: #2a75bb;
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 1px;
+  font-size: 20px;
+}
+.abilityspan {
+  font-family: sans-serif;
+  margin: 2px;
+}
+.mspan {
+  font-family: pokemon1;
+  color: #2a75bb;
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 1px;
+  font-size: 20px;
+}
+.movespan {
+  font-family: sans-serif;
+}
+.tspan {
+  font-family: pokemon1;
+  color: #2a75bb;
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 1px;
+  font-size: 20px;
+}
+.typespan {
+  font-family: sans-serif;
+  margin: 2px;
+}
+.hspan {
+  font-family: pokemon1;
+}
+.heightspan {
+  font-family: sans-serif;
+}
+.wspan {
+  font-family: pokemon1;
+}
+.weightspan {
+  font-family: sans-serif;
 }
 .pokecard {
-  background: rgba(29, 216, 207, 0.25);
+  background: black;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(0px);
   -webkit-backdrop-filter: blur(0px);
   border-radius: 10px;
+
+  background: rgb(238, 21, 21);
+  background: radial-gradient(
+    circle,
+    rgba(238, 21, 21, 1) 0%,
+    rgba(240, 0, 0, 1) 61%,
+    rgba(0, 0, 0, 1) 100%
+  );
 }
 .pokepic {
   height: 50vh;
