@@ -27,7 +27,6 @@ body {
 }
 
 h1 {
-  
   font-family: pokemon1;
   color: #2a75bb;
   margin: 2px;
@@ -35,21 +34,27 @@ h1 {
   -webkit-text-stroke-width: 5px;
   font-size: 80px;
 }
-.pokecard{
+h2 {
+  font-family: pokemon1;
+  color: #2a75bb;
+  -webkit-text-fill-color: #ffcb05;
+  -webkit-text-stroke-width: 3px;
+}
+.nameh2 {
+  font-family: pokemon2;
+}
+.pokecard {
   background: rgba(29, 216, 207, 0.25);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(0px);
   -webkit-backdrop-filter: blur(0px);
   border-radius: 10px;
-
 }
 .pokepic {
-  
   height: 50vh;
   width: 25vw;
-  
 }
-.pokemon-info{
+.pokemon-info {
   display: flex;
   justify-content: center;
   padding: 10px;
@@ -77,12 +82,12 @@ h1 {
   font-size: 25px;
 }
 
-.npbtn{
-  font-size: 70px ;
+.npbtn {
+  font-size: 70px;
   background: transparent;
   border: none;
   color: #2a75bb;
-
+  margin: 20px;
   -webkit-text-fill-color: #ffcb05;
   -webkit-text-stroke-width: 5px;
 }
