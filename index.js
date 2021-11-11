@@ -15,9 +15,9 @@ const getPokemonList = (url) => {
           .then((res) => res.json())
           .then((pokemons) => {
             pokemonList.innerHTML += `
-            <div class="pokemon-image-container">
+            <div class="pokemon-image-container" onclick="getPokemonInfo('${pokemon.url}')">
             <img src="${pokemons.sprites.back_default}" class="pokemon-image back-pic">
-            <img src="${pokemons.sprites.front_default}" class="pokemon-image front-pic">
+            <img src="${pokemons.sprites.other["official-artwork"].front_default}" class="pokemon-image front-pic">
             </div>`;
           });
       });
@@ -33,3 +33,78 @@ const getPokemonList = (url) => {
     });
 };
 getPokemonList(base_URL);
+
+// get pokemon data
+const getPokemonInfo = (url) => {
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      let abilities = data.abilities;
+      let types = data.types;
+
+      abilities.forEach((a) => {});
+      types.forEach((c) => {});
+
+      document.querySelector(
+        ".pokemon-modal"
+      ).innerHTML = `<div class="pokemon-card"> 
+      <div class="modal-heading">
+        <h2 class="pokemon-name">${data.name}</h2>
+        <p ># ${data.order}</p>        
+      </div>
+      <img class="pokemon-modal-picture" src= "${data.sprites.other["official-artwork"].front_default}">
+      
+      <div class="modal-details">
+        <p class="pokemon-type">Type: </p>
+        <p class='pokemon-ability'>Abilities: </p>
+        <p >Moves: ${data.moves[0].move.name} </p>
+        <p >Height: ${data.height}m </p> 
+        <p >Weight: ${data.weight}kg</p> 
+      </div>
+      
+      </div>`;
+
+      abilities.forEach((a) => {
+        document.querySelector(
+          ".pokemon-ability"
+        ).innerHTML += `<span class="abilityspan">${a.ability.name}</span>`;
+      });
+
+      types.forEach((c) => {
+        document.querySelector(
+          ".pokemon-type"
+        ).innerHTML += `<span class="typespan">${c.type.name}</span>`;
+      });
+    });
+};
+
+// modal section
+
+function createModal(modal) {
+  let createdModal = `
+  <div id="${modal.url}" class="modal" onclick="toggleModal('${modal.url}')">
+    <div class="back-drop"> 
+      
+      MODAL
+      
+      </div> 
+    </div>
+</div>
+  `;
+  return createdModal;
+}
+
+function showModal() {
+  let modalContainer = document.querySelector(".pokemon-modal");
+  for (modal of pokemons) {
+    let card = createModal(modal);
+    modalContainer.innerHTML += card;
+  }
+}
+
+showModal();
+
+function toggleModal(modalID) {
+  document.getElementById(modalID).classList.toggle("active");
+}
