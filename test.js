@@ -1,66 +1,48 @@
-let base_URL = "https://pokeapi.co/api/v2/pokemon";
+let base_URL = "https://pokeapi.co/api/v2/pokemon/";
 
+// Function to fetch a list of pokemon
 function getPokemonList(url) {
   fetch(url)
+    // Convert data from JSON
     .then((response) => response.json())
+    //Stuff to do with data
     .then((data) => {
+      // Console log to make sure I am getting the data
       console.log(data);
+      // Get the list of pokemon from the results
       let pokemon = data.results;
+      // Get element from HTML to write buttons in
       let container = document.querySelector(".pokemon-list-container");
+      // Clear the container
       container.innerHTML = "";
+      // Loop over pokemon list and create an HTML button for each one. Add the button to the container
       pokemon.forEach((btn) => {
-        container.innerHTML += `<button class="pokebtn" onclick="getPokemonInfo('${btn.url}')">${btn.name}</button>`;
+        container.innerHTML += `<button onclick="getPokemonInfo('${btn.url}')">${btn.name}</button>`;
       });
-      container.innerHTML += `<button class="npbtn" onclick="getPokemonList('${data.previous}')"><i class="far fa-arrow-alt-circle-left"></i></button>`;
-      container.innerHTML += `<button class="npbtn" onclick="getPokemonList('${data.next}')"><i class="far fa-arrow-alt-circle-right"></i></button>`;
+      // Add a next pokemon button
+      container.innerHTML += `<br><br><button onclick="getPokemonList('${data.next}')">Next</button>`;
     });
 }
+
+// Get default pokemon list
 getPokemonList(base_URL);
 
+// Function to get information about a specific pokemin
 function getPokemonInfo(url) {
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
+      // Make sure data comes throufg
       console.log(data);
-      let abilities = data.abilities;
-      let types = data.types;
-
-      abilities.forEach((a) => {});
-      types.forEach((c) => {});
-
-      document.querySelector(
-        ".pokepic"
-      ).innerHTML = `<img src= "${data.sprites.other["official-artwork"].front_default}"> <img src= "${data.sprites.back_default}">`;
-      document.querySelector(".pokemon-info").innerHTML = `
-
-      
-      <div> 
-      <h2>Pokemon: <span class="nameh2">${data.name}</span></h2>
-      <p class="tspan">Type: </p>
-      <p class='aspan'>Abilities: </p>
-      <p class="mspan">Moves:  <span class="movespan">${data.moves[0].move.name}</span></p>
-      <p class="hspan">height: <span class="heightspan">${data.height}m</span> </p> 
-      <p class="wspan">Weight: <span class="weightspan">${data.weight}kg</span></p> 
-      </div>`;
-
-      abilities.forEach((a) => {
-        document.querySelector(
-          ".aspan"
-        ).innerHTML += `<span class="abilityspan">${a.ability.name}</span>`;
-      });
-
-      types.forEach((c) => {
-        document.querySelector(
-          ".tspan"
-        ).innerHTML += `<span class="typespan">${c.type.name}</span>`;
-      });
+      fetch(data.species.url)
+        .then((res) => res.json())
+        .then((speciesData) => {
+          console.log(speciesData);
+          // Write data to pokemon information container
+          document.querySelector(".pokemon-info").innerHTML = `
+    <img src="${data.sprites.front_default} ">
+    <p>${speciesData.flavor_text_entries[0].flavor_text}</p>
+    `;
+        });
     });
 }
-
-// moves.forEach((b) => {});
-// let moves = data.moves;
-// moves.forEach((b) => {
-//   document.querySelector(
-//     ".mspan"
-//   ).innerHTML += `<span class="movespan">${b.move.name}</span>`;
-// });

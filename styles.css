@@ -78,15 +78,38 @@ h2 {
 }
 .hspan {
   font-family: pokemon1;
+  color: #2a75bb;
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 1px;
+  font-size: 20px;
 }
 .heightspan {
   font-family: sans-serif;
 }
 .wspan {
   font-family: pokemon1;
+  color: #2a75bb;
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 1px;
+  font-size: 20px;
 }
 .weightspan {
   font-family: sans-serif;
+}
+.pokeorder {
+  display: flex;
+  justify-content: flex-end;
+}
+.ospan {
+  font-family: pokemon1;
+  color: #2a75bb;
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 1px;
+  font-size: 50px;
+}
+.orderspan {
+  font-family: sans-serif;
+  font-size: 50px;
 }
 .pokecard {
   background: black;

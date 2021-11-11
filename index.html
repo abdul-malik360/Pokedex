@@ -4,30 +4,80 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="/styles.css" />
+    <title>Abdul-Malik's Pokedex</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="/index.css" />
+    <link rel="stylesheet" href="/footer.css" />
+
+    <!-- fontawesome -->
     <script
       src="https://kit.fontawesome.com/ab6051d3ab.js"
       crossorigin="anonymous"
     ></script>
   </head>
   <body>
-    <div class="container">
-      <div class="pokecard">
-        <h1>My Pokedex</h1>
-        <div class="pokepic"></div>
-        <div class="pokemon-info"></div>
-      </div>
-      <div class="pokemon-list-container"></div>
+    <div class="pokemon-container">
+      <h1 class="pokedex-heading">My Pokedex</h1>
+      <!-- the pokemon modal -->
+      <div class="pokemon-modal-container"></div>
+
+      <!-- the pokemon cards -->
+      <div class="pokemon-cards-container"></div>
     </div>
 
-    <script src="/pokemon.js"></script>
+    <!-- footer -->
+    <footer>
+      <a
+        class="footer-contact-btn"
+        href="https://abdul-malik-portfolio.netlify.app/html/contact.html"
+        target="_blank"
+        >Let's Work Together</a
+      >
+
+      <a
+        class="footer-text footer-tooltip"
+        href="https://abdul-malik-portfolio.netlify.app/"
+        target="_blank"
+      >
+        <span class="footer-tooltip-text">Portfolio</span>
+        <i class="far fa-copyright"></i> Made by Abdul-Malik Mohamed</a
+      >
+
+      <div class="footer-links">
+        <a
+          class="footer-icon"
+          href="https://github.com/abdul-malik360"
+          target="_blank"
+        >
+          <i class="fab fa-github footer-tooltip">
+            <span class="footer-tooltip-text">Github</span>
+          </i>
+        </a>
+
+        <a
+          class="footer-icon"
+          href="https://codepen.io/abdul-malik360"
+          target="_blank"
+        >
+          <i class="fab fa-codepen footer-tooltip">
+            <span class="footer-tooltip-text">Codepen</span>
+          </i>
+        </a>
+
+        <a
+          class="footer-icon"
+          href="https://www.linkedin.com/in/abdul-malik-mohamed-5938bb214"
+          target="_blank"
+        >
+          <i class="fab fa-linkedin-in footer-tooltip">
+            <span class="footer-tooltip-text">LinkedIn</span>
+          </i>
+        </a>
+      </div>
+    </footer>
+
+    <!-- js -->
+    <script src="/index.js"></script>
   </body>
 </html>
-
-<!-- <a href="https://fontmeme.com/pokemon-font/"
-          ><img
-            src="https://fontmeme.com/permalink/210628/40affa9535348693574896075c32ad18.png"
-            alt="pokemon-font"
-            border="0"
-        /></a> -->

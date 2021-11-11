@@ -34,18 +34,20 @@ function getPokemonInfo(url) {
       types.forEach((c) => {});
 
       document.querySelector(
+        ".pokeorder"
+      ).innerHTML = `<p class="ospan"># <span class="orderspan">${data.order}</span></p>`;
+
+      document.querySelector(
         ".pokepic"
       ).innerHTML = `<img src= "${data.sprites.other["official-artwork"].front_default}">`;
-      document.querySelector(".pokemon-info").innerHTML = `
-
-      
-      <div> 
+      document.querySelector(".pokemon-info").innerHTML = `<div> 
       <h2>Pokemon: <span class="nameh2">${data.name}</span></h2>
       <p class="tspan">Type: </p>
       <p class='aspan'>Abilities: </p>
       <p class="mspan">Moves:  <span class="movespan">${data.moves[0].move.name}</span></p>
       <p class="hspan">height: <span class="heightspan">${data.height}m</span> </p> 
       <p class="wspan">Weight: <span class="weightspan">${data.weight}kg</span></p> 
+      
       </div>`;
 
       abilities.forEach((a) => {
