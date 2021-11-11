@@ -34,13 +34,8 @@ body {
   -webkit-text-stroke-width: 5px;
   font-size: 80px;
 
-  margin: 50px;
+  margin-top: 50px;
   text-align: center;
-
-  position: fixed;
-  top: 0;
-  z-index: 1;
-  width: 100%;
 }
 
 .pokemon-modal-container {
@@ -49,17 +44,23 @@ body {
 .pokemon-modal {
 }
 
+.overflow-div {
+  height: 60vh;
+  width: 90%;
+  overflow: hidden;
+}
+
 .pokemon-cards-container {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  /* margin: 20px; */
   place-items: center;
-  margin: 50px;
-  margin-top: 30;
-  padding: 30px;
   height: 100%;
-  /* overflow-y: scroll; */
+  overflow: scroll;
+}
+
+.pokemon-cards-container::-webkit-scrollbar {
+  display: none;
 }
 
 .pokemon-image-container {
