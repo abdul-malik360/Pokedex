@@ -16,7 +16,8 @@ const getPokemonList = (url) => {
           .then((pokemons) => {
             pokemonList.innerHTML += `
             <div class="pokemon-image-container">
-            <img src="${pokemons.sprites.back_default}" class="pokemon-image">
+            <img src="${pokemons.sprites.back_default}" class="pokemon-image back-pic">
+            <img src="${pokemons.sprites.front_default}" class="pokemon-image front-pic">
             </div>`;
           });
       });

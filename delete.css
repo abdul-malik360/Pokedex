@@ -1,0 +1,40 @@
+* {
+  background-color: orange;
+}
+/* Hobbies */
+.flip_card_container {
+  position: relative;
+  width: 250px;
+  height: 320px;
+}
+
+.flipcard {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+}
+
+.flipcard:hover {
+  transform: rotateY(180deg);
+}
+
+.front_of_card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background: white;
+  color: black;
+}
+
+.back_of_card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background: black;
+  color: white;
+  transform: rotateY(180deg);
+}
