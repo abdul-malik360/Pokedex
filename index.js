@@ -58,13 +58,13 @@ const getPokemonInfo = (url) => {
             <p ># ${data.order}</p>        
           </div>
           <img class="pokemon-modal-picture" src= "${data.sprites.other["official-artwork"].front_default}">
-      
+
           <div class="modal-details">
-            <p class="pokemon-type">Type: </p>
-            <p class='pokemon-ability'>Abilities: </p>
-            <p >Moves: ${data.moves[0].move.name} </p>
-            <p >Height: ${data.height}m </p> 
-            <p >Weight: ${data.weight}kg</p> 
+            <p class="pokemon-type modal-detail">Type: </p>
+            <p class="pokemon-ability modal-detail">Abilities: </p>
+            <p class="modal-detail">Moves: <span class="modal-detail-span"> ${data.moves[0].move.name} </span></p>
+            <p class="modal-detail">Height: <span class="modal-detail-span"> ${data.height}m</span> </p> 
+            <p class="modal-detail">Weight: <span class="modal-detail-span"> ${data.weight}kg</span></p> 
           </div>
 
         </div>
@@ -74,13 +74,13 @@ const getPokemonInfo = (url) => {
       abilities.forEach((a) => {
         document.querySelector(
           ".pokemon-ability"
-        ).innerHTML += `<span class="abilityspan">${a.ability.name}</span>`;
+        ).innerHTML += `<span class="modal-detail-span">${a.ability.name}</span>`;
       });
 
       types.forEach((c) => {
         document.querySelector(
           ".pokemon-type"
-        ).innerHTML += `<span class="typespan">${c.type.name}</span>`;
+        ).innerHTML += `<span class="modal-detail-span">${c.type.name}</span>`;
       });
     });
 };
