@@ -233,6 +233,6 @@ body {
 
 @media screen and (max-width: 600px) {
   .pokemon-card {
-    width: 50%;
+    width: 90%;
   }
 }
