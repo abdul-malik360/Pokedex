@@ -34,6 +34,9 @@ const getPokemonList = (url) => {
 };
 getPokemonList(base_URL);
 
+const pokemonModal = document.querySelector(".pokemon-modal");
+pokemonModal.addEventListener("click", toggleModal);
+
 // get pokemon data
 const getPokemonInfo = (url) => {
   fetch(url)
@@ -45,25 +48,28 @@ const getPokemonInfo = (url) => {
 
       abilities.forEach((a) => {});
       types.forEach((c) => {});
+      pokemonModal.classList.toggle("active");
 
-      document.querySelector(
-        ".pokemon-modal"
-      ).innerHTML = `<div class="pokemon-card"> 
-      <div class="modal-heading">
-        <h2 class="pokemon-name">${data.name}</h2>
-        <p ># ${data.order}</p>        
-      </div>
-      <img class="pokemon-modal-picture" src= "${data.sprites.other["official-artwork"].front_default}">
+      pokemonModal.innerHTML = `
+      <div class="back-drop">
+        <div class="pokemon-card"> 
+          <div class="modal-heading">
+            <h2 class="pokemon-name">${data.name}</h2>
+            <p ># ${data.order}</p>        
+          </div>
+          <img class="pokemon-modal-picture" src= "${data.sprites.other["official-artwork"].front_default}">
       
-      <div class="modal-details">
-        <p class="pokemon-type">Type: </p>
-        <p class='pokemon-ability'>Abilities: </p>
-        <p >Moves: ${data.moves[0].move.name} </p>
-        <p >Height: ${data.height}m </p> 
-        <p >Weight: ${data.weight}kg</p> 
+          <div class="modal-details">
+            <p class="pokemon-type">Type: </p>
+            <p class='pokemon-ability'>Abilities: </p>
+            <p >Moves: ${data.moves[0].move.name} </p>
+            <p >Height: ${data.height}m </p> 
+            <p >Weight: ${data.weight}kg</p> 
+          </div>
+
+        </div>
       </div>
-      
-      </div>`;
+      `;
 
       abilities.forEach((a) => {
         document.querySelector(
@@ -79,32 +85,6 @@ const getPokemonInfo = (url) => {
     });
 };
 
-// modal section
-
-function createModal(modal) {
-  let createdModal = `
-  <div id="${modal.url}" class="modal" onclick="toggleModal('${modal.url}')">
-    <div class="back-drop"> 
-      
-      MODAL
-      
-      </div> 
-    </div>
-</div>
-  `;
-  return createdModal;
-}
-
-function showModal() {
-  let modalContainer = document.querySelector(".pokemon-modal");
-  for (modal of pokemons) {
-    let card = createModal(modal);
-    modalContainer.innerHTML += card;
-  }
-}
-
-showModal();
-
-function toggleModal(modalID) {
-  document.getElementById(modalID).classList.toggle("active");
+function toggleModal() {
+  pokemonModal.classList.toggle("active");
 }

@@ -18,6 +18,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  display: grid;
 }
 
 .pokemon-container {
@@ -76,14 +77,14 @@ body {
 
 .pokemon-image-container:hover {
   transform: rotateY(180deg);
+  cursor: zoom-in;
 }
 
 .pokemon-image {
   height: 150px;
   width: 150px;
   object-fit: contain;
-
-  cursor: pointer;
+  pointer-events: none;
 }
 
 .back-pic {
@@ -128,11 +129,18 @@ body {
 .pokemon-modal-container {
 }
 
-.pokemon-modala {
-  display: none;
+.pokemon-modal {
+  opacity: 0;
+  position: absolute;
+  z-index: 10;
+  place-self: center;
+  transition: 0.5s ease;
+  pointer-events: none;
 }
 
 .pokemon-modal.active {
+  pointer-events: initial;
+  opacity: 1;
   display: flex;
   justify-content: center;
   background-color: white;
@@ -145,13 +153,30 @@ body {
   position: fixed;
 }
 
+.back-drop {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  top: 0;
+  left: 0;
+  position: fixed;
+  background: rgba(29, 53, 87, 0.692);
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+
+  cursor: zoom-out;
+}
+
 .pokemon-card {
   display: flex;
   flex-direction: column;
   /* justify-content: center; */
 
   height: 60vh;
-  width: 100%;
+  width: 30vw;
   padding: 10px;
   border-radius: 20px;
 
